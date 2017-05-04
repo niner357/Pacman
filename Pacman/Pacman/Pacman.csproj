@@ -61,6 +61,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -74,6 +75,66 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music1.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music2.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music3.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music4.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music5.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music6.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music7.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music8.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music9.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music10.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music11.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music12.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music13.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music14.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music15.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music16.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music17.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music18.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music19.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music20.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

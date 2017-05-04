@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
 
 namespace Pacman
 {
@@ -15,6 +16,8 @@ namespace Pacman
         public Form1()
         {
             InitializeComponent();
+            string[] test1 = Assembly.GetExecutingAssembly().GetManifestResourceNames();
+            string[] test2 = test1;
         }
     }
 }
