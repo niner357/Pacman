@@ -19,5 +19,10 @@ namespace Pacman
             string[] test1 = Assembly.GetExecutingAssembly().GetManifestResourceNames();
             string[] test2 = test1;
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //Hallo
+        }
     }
 }
