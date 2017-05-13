@@ -72,8 +72,7 @@ namespace Pacman.MySQL
         /// <param name="row">The Row which should be updated</param>
         /// <param name="newValue">The Value which should be inserted</param>
         /// <param name="where">The WHERE-Statement</param>
-        /// <param name="whereValue">The WHERE-Statement-Value</param>
-        public void Update(string row, string newValue, string where, string whereValue)
+        public void Update(string row, string newValue, string where)
         {
             if (Connect())
             {
@@ -87,17 +86,16 @@ namespace Pacman.MySQL
         /// </summary>
         /// <param name="row">The Row which should be selected</param>
         /// <param name="where">The WHERE-Statement</param>
-        /// <param name="whereValue">The WHERE-Statement-Value</param>
-        /// <returns>A List with all available Datasets</returns>
-        public List<string> Select(string row, string where, string whereValue)
+        /// <returns>The available Dataset to the WHERE-Statement</returns>
+        public string Select(string row, string where)
         {
-            List<string> datasets = new List<string>();
+            string dataset = "";
             if (Connect())
             {
 
                 Disconnect();
             }
-            return datasets;
+            return dataset;
         }
 
         /// <summary>
