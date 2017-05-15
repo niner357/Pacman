@@ -11,6 +11,7 @@ using System.Reflection;
 using System.Diagnostics;
 using Pacman.MySQL;
 using System.Security.Cryptography;
+using Pacman.Extension;
 
 namespace Pacman
 {
@@ -122,6 +123,11 @@ namespace Pacman
             {
                 usernameTextBox.Focus();
             }
+        }
+
+        private void picturePanel_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawImage(Properties.Resources.login_button_png_13.ResizeImage(picturePanel.Width, picturePanel.Height), 0, 0);
         }
     }
 }

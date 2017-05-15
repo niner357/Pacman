@@ -102,6 +102,7 @@
             this.picturePanel.Name = "picturePanel";
             this.picturePanel.Size = new System.Drawing.Size(273, 83);
             this.picturePanel.TabIndex = 6;
+            this.picturePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.picturePanel_Paint);
             // 
             // LoginForm
             // 
