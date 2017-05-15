@@ -79,6 +79,7 @@ namespace Pacman.MySQL
                 string query = "UPDATE " + table +" SET " + row + "='" + newValue + "' WHERE " + where ;
                 MySqlCommand cmd = new MySqlCommand(query, Connection);
                 cmd.ExecuteNonQuery();
+
                 Disconnect();
             }
         }
