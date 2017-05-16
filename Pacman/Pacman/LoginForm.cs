@@ -50,9 +50,9 @@ namespace Pacman
             string dataset = database.Select("Verified", "Username='" + username + "' AND Password='" + password + "'");
             if(dataset != "")
             {
-                if(dataset == "1")
+                if(dataset == "True")
                 {
-                    //START
+                    MessageBox.Show("Successfully logged in! Have fun!", "Logged In!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
