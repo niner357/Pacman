@@ -52,12 +52,18 @@
     <Compile Include="Controls\ControlManager.cs" />
     <Compile Include="Controls\GameControl.cs" />
     <Compile Include="Extension\GDIExtension.cs" />
+    <Compile Include="KeyInput\EventKeyInput.cs" />
+    <Compile Include="KeyInput\IKeyInput.cs" />
+    <Compile Include="KeyInput\KeyInputHandler.cs" />
+    <Compile Include="KeyInput\SimpleKeyInput.cs" />
+    <Compile Include="KeyInput\ThreadingMode.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Map\GridField.cs" />
     <Compile Include="MySQL\Database.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
