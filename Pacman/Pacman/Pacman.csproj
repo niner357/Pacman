@@ -63,7 +63,10 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Map\GridField.cs" />
+    <Compile Include="Map\ChildField.cs" />
+    <Compile Include="Map\Level.cs" />
+    <Compile Include="Map\LevelDecoder.cs" />
+    <Compile Include="Map\Tile.cs" />
     <Compile Include="MySQL\Database.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -159,5 +162,6 @@
   <ItemGroup>
     <None Include="Resources\login-button-png-13.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

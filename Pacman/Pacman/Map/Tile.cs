@@ -7,19 +7,21 @@ using System.Threading.Tasks;
 
 namespace Pacman.Map
 {
-    public class GridField
+    public class Tile
     {
         public bool Solid { get; set; }
 
-        public int Width { get; }
+        public int Width { get; private set; }
 
-        public int Height { get; }
+        public int Height { get; private set; }
 
-        public int X { get; }
+        public int X { get; private set; }
 
-        public int Y { get; }
+        public int Y { get; private set; }
 
-        public GridField(int x, int y)
+        public ChildField Child { get; set; }
+
+        public Tile(int x, int y)
         {
             Width = 16;
             Height = 16;
