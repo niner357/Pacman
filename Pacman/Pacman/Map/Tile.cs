@@ -9,25 +9,25 @@ namespace Pacman.Map
 {
     public class Tile
     {
-        public bool Solid { get; set; }
+        public int Width { get; set; }
 
-        public int Width { get; private set; }
-
-        public int Height { get; private set; }
+        public int Height { get; set; }
 
         public int X { get; private set; }
 
         public int Y { get; private set; }
 
-        public ChildField Child { get; set; }
+        public Tile Child { get; set; }
 
-        public Tile(int x, int y)
+        public TileType Type { get; set; }
+
+        public Tile(int x, int y, int width, int height, TileType type)
         {
-            Width = 16;
-            Height = 16;
             X = x;
             Y = y;
-            Solid = false;
+            Width = width;
+            Height = height;
+            Type = type;
         }
 
         public bool IsPositionIn(Point point)

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Pacman.Map
 {
-    public class ChildField
+    public enum TileType
     {
+        Wall, Way, PlayerSpawn, ClydeSpawn, InkySpawn, PinkySpawn, BlinkySpawn, Point, Fruit, Power
     }
 }

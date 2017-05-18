@@ -63,10 +63,10 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Map\ChildField.cs" />
     <Compile Include="Map\Level.cs" />
     <Compile Include="Map\LevelDecoder.cs" />
     <Compile Include="Map\Tile.cs" />
+    <Compile Include="Map\TileType.cs" />
     <Compile Include="MySQL\Database.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
