@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Pacman.Entities
 {
-    class Player : IRenderable
+    public class Player : IRenderable
     {
         public Renderer PlayerRenderer { get; private set; }
         public int X { get; private set; }
@@ -33,7 +33,7 @@ namespace Pacman.Entities
 
         public void Render(Graphics g)
         {
-            
+            OpenPacMan(g);
         }
 
         public void OpenPacMan(Graphics g)

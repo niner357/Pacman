@@ -1,4 +1,5 @@
-﻿using Pacman.Rendering;
+﻿using Pacman.Entities;
+using Pacman.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -15,10 +16,13 @@ namespace Pacman.Map
 
         public Renderer LevelRenderer { get; private set; }
 
+        public Player Player { get; private set; }
+
         public Level(Control parent, LevelDecoder decoder)
         {
             Grid = decoder.DecodeLevel();
             LevelRenderer = new Renderer(parent, this);
+            Player = new Player(parent, decoder.Width / 32, decoder.Height / 32);
         }
 
         public void Render(Graphics g)
