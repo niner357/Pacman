@@ -52,7 +52,7 @@ namespace Pacman
             {
                 if(dataset == "True")
                 {
-                    MessageBox.Show("Successfully logged in! Have fun!", "Logged In!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GameForm form = new GameForm(this);
                 }
                 else
                 {
