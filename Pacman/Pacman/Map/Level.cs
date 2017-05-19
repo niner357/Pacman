@@ -20,7 +20,7 @@ namespace Pacman.Map
 
         public Level(Control parent, LevelDecoder decoder)
         {
-            Grid = decoder.DecodeLevel();
+            //Grid = decoder.DecodeLevel();
             LevelRenderer = new Renderer(parent, this);
             Player = new Player(parent, decoder.Width / 32, decoder.Height / 32);
         }

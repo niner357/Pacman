@@ -1,4 +1,5 @@
 ﻿using Pacman.Audio;
+using Pacman.Map;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,19 +14,20 @@ namespace Pacman
 {
     public partial class GameForm : Form
     {
+        private AudioPlayer audioPlayer;
         private Form parentForm;
+        private Level level;
+
         public GameForm(Form parent)
         {
             parentForm = parent;
             parent.Hide();
             InitializeComponent();
-            AudioPlayer player = new AudioPlayer();
-            player.MusicPlayer.PlayNext();
+            level = new Level(fieldPanel, new LevelDecoder("", fieldPanel.Width, fieldPanel.Height));
+            audioPlayer = new AudioPlayer();
+            audioPlayer.MusicPlayer.PlayNext();
             Show();
-        }
-
-        private void GameForm_Load(object sender, EventArgs e)
-        {
+            level.Player.Spawn(100, 100);
         }
 
         private void GameForm_FormClosing(object sender, FormClosingEventArgs e)
