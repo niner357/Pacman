@@ -59,7 +59,7 @@ namespace Pacman.Map
             int i = 0;
             for (int y = 0; y < Width; y += tileWidth)
             {
-                for (int x = 0; x < 512; x += tileHeight)
+                for (int x = 0; x < Height; x += tileHeight)
                 {
                     char c = inputStr.ToCharArray()[i];
                     i++;

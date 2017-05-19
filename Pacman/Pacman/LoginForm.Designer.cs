@@ -47,7 +47,6 @@
             this.registerButton.Text = "Register";
             this.registerButton.UseVisualStyleBackColor = true;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
-            this.registerButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.registerButton_KeyDown);
             // 
             // loginButton
             // 
@@ -58,7 +57,6 @@
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
-            this.loginButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.loginButton_KeyDown);
             // 
             // passwordTextBox
             // 
@@ -67,7 +65,6 @@
             this.passwordTextBox.Size = new System.Drawing.Size(185, 20);
             this.passwordTextBox.TabIndex = 2;
             this.passwordTextBox.UseSystemPasswordChar = true;
-            this.passwordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTextBox_KeyDown);
             // 
             // usernameTextBox
             // 
@@ -75,7 +72,6 @@
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(185, 20);
             this.usernameTextBox.TabIndex = 3;
-            this.usernameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.usernameTextBox_KeyDown);
             // 
             // passwordLabel
             // 
@@ -122,6 +118,7 @@
             this.MinimumSize = new System.Drawing.Size(289, 217);
             this.Name = "LoginForm";
             this.Text = "Pacman: Login";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginForm_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -17,9 +17,20 @@ namespace Pacman
         public GameForm(Form parent)
         {
             parentForm = parent;
+            parent.Hide();
             InitializeComponent();
             AudioPlayer player = new AudioPlayer();
             player.MusicPlayer.PlayNext();
+            Show();
+        }
+
+        private void GameForm_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void GameForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            parentForm.Close();
         }
     }
 }

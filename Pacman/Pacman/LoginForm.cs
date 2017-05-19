@@ -93,41 +93,20 @@ namespace Pacman
             return strBuilder.ToString();
         }
 
-        private void usernameTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Tab)
-            {
-                passwordTextBox.Focus();
-            }
-        }
-
-        private void passwordTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Tab)
-            {
-                loginButton.Focus();
-            }
-        }
-
-        private void loginButton_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Tab)
-            {
-                registerButton.Focus();
-            }
-        }
-
-        private void registerButton_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Tab)
-            {
-                usernameTextBox.Focus();
-            }
-        }
-
         private void picturePanel_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.DrawImage(Properties.Resources.login_button_png_13.ResizeImage(picturePanel.Width, picturePanel.Height), 0, 0);
+        }
+
+        private void LoginForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Tab)
+            {
+                if (usernameTextBox.Focused)
+                    passwordTextBox.Focus();
+                else if (passwordTextBox.Focused)
+                    usernameTextBox.Focus();
+            }
         }
     }
 }
