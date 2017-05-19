@@ -1,71 +1,11 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Morphing Login</title>
-
-	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,700,900" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/layout.css">
-
-	<script src="js/jquery.js"></script>
-
+	<meta http-equiv="refresh" content="0; url=index.php" />
+	<title></title>
 </head>
-
 <body>
 
-	<div id="ud_button" class="ud_button">
-		<div id="ud_inhalt">
-			<form>
-				<h3>Login <span id="ud_close">Close</span></h3>
-				<p>
-					<label>Name</label>
-					<input type="text" name="name">
-				</p>
-				<p>
-					<label>Passwort</label>
-					<input type="passwort" name="passwort">
-				</p>
-				<p>
-					<input id="senden" type="submit" name="senden" placeholder="Login">
-				</p>
-			</form>
-		</div>
-		<h3 id="ud_click">Login</h3>
-	</div>
-
-
-	<script>
-
-		$(document).ready(function(){
-
-			var ud_status = false;
-
-			$('#ud_click').stop().on('click',function(){
-				$(this).fadeOut(300);
-				if(ud_status == false) {
-					$('#ud_button').addClass('ud_aktive_1');
-					setTimeout(function(){
-						$('#ud_button').addClass('ud_aktive');
-					},250);
-					ud_status = true;
-				}
-			});
-
-			$('#ud_close').stop().on('click',function(){
-				if(ud_status == true) {
-					$('#ud_button').removeClass('ud_aktive');
-					$('#ud_click').fadeIn(300);
-					setTimeout(function(){
-						$('#ud_button').removeClass('ud_aktive_1');
-					},250);
-					ud_status = false;
-				}
-			});
-
-		});
-
-	</script>
 
 </body>
 </html>

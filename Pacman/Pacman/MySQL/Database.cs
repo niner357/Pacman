@@ -76,6 +76,9 @@ namespace Pacman.MySQL
         {
             if (Connect())
             {
+                string query = "UPDATE " + table +" SET " + row + "='" + newValue + "' WHERE " + where ;
+                MySqlCommand cmd = new MySqlCommand(query, Connection);
+                cmd.ExecuteNonQuery();
 
                 Disconnect();
             }
@@ -92,7 +95,24 @@ namespace Pacman.MySQL
             string dataset = "";
             if (Connect())
             {
-
+                string query = "SELECT " + row + " FROM " + table + " WHERE " + where;
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, Connection);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        for(int i = 0; i < reader.FieldCount; i++)
+                        {
+                            if (dataset != "")
+                                dataset += "[NEXT]" + reader.GetString(i);
+                            else
+                                dataset = reader.GetString(i);
+                        }
+                    }
+                    reader.Close();
+                }
+                catch { }
                 Disconnect();
             }
             return dataset;
