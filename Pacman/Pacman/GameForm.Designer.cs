@@ -29,16 +29,29 @@
         private void InitializeComponent()
         {
             this.fieldPanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.fieldPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // fieldPanel
             // 
             this.fieldPanel.BackColor = System.Drawing.Color.Black;
+            this.fieldPanel.Controls.Add(this.button1);
             this.fieldPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fieldPanel.Location = new System.Drawing.Point(0, 0);
             this.fieldPanel.Name = "fieldPanel";
             this.fieldPanel.Size = new System.Drawing.Size(688, 528);
             this.fieldPanel.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(257, 406);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // GameForm
             // 
@@ -49,6 +62,7 @@
             this.Name = "GameForm";
             this.Text = "GameForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GameForm_FormClosing);
+            this.fieldPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -56,5 +70,6 @@
         #endregion
 
         private System.Windows.Forms.Panel fieldPanel;
+        private System.Windows.Forms.Button button1;
     }
 }

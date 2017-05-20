@@ -55,6 +55,8 @@
     <Compile Include="Audio\AudioPlay.cs" />
     <Compile Include="Audio\AudioPlayer.cs" />
     <Compile Include="Audio\MusicPlayer.cs" />
+    <Compile Include="Audio\Sound.cs" />
+    <Compile Include="Audio\SoundPlayer.cs" />
     <Compile Include="Controls\ControlManager.cs" />
     <Compile Include="Controls\GameControl.cs" />
     <Compile Include="Entities\Player.cs" />
@@ -178,6 +180,8 @@
   <ItemGroup>
     <None Include="Resources\login-button-png-13.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\res_sound_energize.mp3" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

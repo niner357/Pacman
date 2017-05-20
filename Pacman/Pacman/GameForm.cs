@@ -34,5 +34,10 @@ namespace Pacman
         {
             parentForm.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            audioPlayer.SoundPlayer.PlaySound("energize");
+        }
     }
 }

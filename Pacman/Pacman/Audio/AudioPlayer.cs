@@ -10,9 +10,12 @@ namespace Pacman.Audio
     {
         public MusicPlayer MusicPlayer { get; private set; }
 
+        public SoundPlayer SoundPlayer { get; private set; }
+
         public AudioPlayer()
         {
             MusicPlayer = new MusicPlayer();
+            SoundPlayer = new SoundPlayer(MusicPlayer);
         }
     }
 }

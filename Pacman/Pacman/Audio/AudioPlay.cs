@@ -12,11 +12,19 @@ namespace Pacman.Audio
     {
         public WaveOut CreateWaveOut(Stream audioStream, float vol)
         {
-            WaveStream waveStream = new BlockAlignReductionStream(WaveFormatConversionStream.CreatePcmStream(new Mp3FileReader(audioStream)));
-            WaveOut waveOut = new WaveOut(WaveCallbackInfo.FunctionCallback());
-            waveOut.Init(waveStream);
-            waveOut.Volume = vol;
-            return waveOut;
+            try
+            {
+                audioStream.Position = 0;
+                WaveStream waveStream = new BlockAlignReductionStream(WaveFormatConversionStream.CreatePcmStream(new Mp3FileReader(audioStream)));
+                WaveOut waveOut = new WaveOut(WaveCallbackInfo.FunctionCallback());
+                waveOut.Init(waveStream);
+                waveOut.Volume = vol;
+                return waveOut;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public void Play(WaveOut waveOut)

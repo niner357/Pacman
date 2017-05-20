@@ -269,5 +269,15 @@ namespace Pacman.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
+        internal static byte[] res_sound_energize {
+            get {
+                object obj = ResourceManager.GetObject("res_sound_energize", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

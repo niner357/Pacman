@@ -47,6 +47,8 @@ namespace Pacman.Audio
         public void PlayNext()
         {
             MusicWaveOut = CreateWaveOut(GetRandomMusic(), 0.1f);
+            if (MusicWaveOut == null)
+                return;
             Play(MusicWaveOut);
         }
 
