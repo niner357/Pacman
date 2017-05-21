@@ -73,6 +73,16 @@ namespace Pacman.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
         /// </summary>
+        internal static byte[] PixelFont {
+            get {
+                object obj = ResourceManager.GetObject("PixelFont", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        /// </summary>
         internal static byte[] res_music1 {
             get {
                 object obj = ResourceManager.GetObject("res_music1", resourceCulture);

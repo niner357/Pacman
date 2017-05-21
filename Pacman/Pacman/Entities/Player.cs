@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Pacman.Rendering;
 using System.Windows.Forms;
 using Pacman.Collision;
+using Pacman.Map;
 
 namespace Pacman.Entities
 {
@@ -18,10 +19,13 @@ namespace Pacman.Entities
         public int Width { get; private set; }
         public int Height { get; private set; }
         public bool Energized { get; set; }
+        public Collider PlayerCollider { get; private set; }
+        
 
-        public Player(Control parent, int width, int height)
+        public Player(Control parent, Level level, int width, int height)
         {
             PlayerRenderer = new Renderer(parent, this);
+            PlayerCollider = new Collider(level, this);
             this.Width = width;
             this.Height = height;
         }

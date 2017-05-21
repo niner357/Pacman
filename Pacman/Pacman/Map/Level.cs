@@ -22,7 +22,7 @@ namespace Pacman.Map
         {
             //Grid = decoder.DecodeLevel();
             LevelRenderer = new Renderer(parent, this);
-            Player = new Player(parent, decoder.Width / 32, decoder.Height / 32);
+            Player = new Player(parent, this, decoder.Width / 32, decoder.Height / 32);
         }
 
         public void Render(Graphics g)
