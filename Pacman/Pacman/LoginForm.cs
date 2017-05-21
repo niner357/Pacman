@@ -97,16 +97,5 @@ namespace Pacman
         {
             e.Graphics.DrawImage(Properties.Resources.login_button_png_13.ResizeImage(picturePanel.Width, picturePanel.Height), 0, 0);
         }
-
-        private void LoginForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Tab)
-            {
-                if (usernameTextBox.Focused)
-                    passwordTextBox.Focus();
-                else if (passwordTextBox.Focused)
-                    usernameTextBox.Focus();
-            }
-        }
     }
 }
