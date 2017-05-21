@@ -36,7 +36,7 @@ namespace Pacman.Controls
 
         public override void OnInitRender(Graphics graphics)
         {
-            
+            graphics.DrawString(Text, new FontManager().CreateFont(FontSize), new SolidBrush(Color), Location);
         }
 
         public override void OnLeaveRender(Graphics graphics)

@@ -1,4 +1,5 @@
 ﻿using Pacman.Audio;
+using Pacman.Controls;
 using Pacman.Map;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace Pacman
         private AudioPlayer audioPlayer;
         private Form parentForm;
         private Level level;
+        private ControlManager controlManager;
 
         public GameForm(Form parent)
         {
@@ -24,6 +26,8 @@ namespace Pacman
             parent.Hide();
             InitializeComponent();
             level = new Level(fieldPanel, new LevelDecoder("", fieldPanel.Width, fieldPanel.Height));
+            controlManager = new ControlManager(fieldPanel);
+            controlManager.AddControl(new GameLabel("Pac-Man", fieldPanel.Width, Color.Gold));
             audioPlayer = new AudioPlayer();
             audioPlayer.MusicPlayer.PlayNext();
             Show();
