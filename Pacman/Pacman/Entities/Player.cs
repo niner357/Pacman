@@ -6,16 +6,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Pacman.Rendering;
 using System.Windows.Forms;
+using Pacman.Collision;
 
 namespace Pacman.Entities
 {
-    public class Player : IRenderable
+    public class Player : IRenderable, ICollidable
     {
         public Renderer PlayerRenderer { get; private set; }
         public int X { get; private set; }
         public int Y { get; private set; }
         public int Width { get; private set; }
         public int Height { get; private set; }
+        public bool Energized { get; set; }
 
         public Player(Control parent, int width, int height)
         {
@@ -45,6 +47,11 @@ namespace Pacman.Entities
         public void ClosePacMan(Graphics g)
         {
             g.FillEllipse(new SolidBrush(Color.Gold), X, Y, Width, Height);
+        }
+
+        public void OnCollide(CollideResult result)
+        {
+            
         }
     }
 }

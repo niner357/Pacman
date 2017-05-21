@@ -57,6 +57,10 @@
     <Compile Include="Audio\MusicPlayer.cs" />
     <Compile Include="Audio\Sound.cs" />
     <Compile Include="Audio\SoundPlayer.cs" />
+    <Compile Include="Collision\Collider.cs" />
+    <Compile Include="Collision\CollideResult.cs" />
+    <Compile Include="Collision\CollisionType.cs" />
+    <Compile Include="Collision\ICollidable.cs" />
     <Compile Include="Controls\ControlManager.cs" />
     <Compile Include="Controls\GameControl.cs" />
     <Compile Include="Entities\Player.cs" />

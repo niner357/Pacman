@@ -29,5 +29,13 @@ namespace Pacman.Map
         {
 
         }
+
+        public Tile GetTile(int x, int y)
+        {
+            foreach (Tile tile in Grid)
+                if (tile.X == x && tile.Y == y)
+                    return tile;
+            return null;
+        }
     }
 }
