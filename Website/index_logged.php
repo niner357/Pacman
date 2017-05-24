@@ -99,15 +99,15 @@ if(!isset($_SESSION["login"])){
 		if($_GET["mod"] == "verification"){
 			?>
 				<h1>Verification</h1>
-				<p>You are still not verified yet. Please verify your Account. Otherwise we will delete your Account. 
+				<p>You are still not verified yet. Please verify your account. Otherwise we will delete your account. 
 				<br>Time remaining: <?php ?>
 				<br>
-				<br>If you haven't got an Verification-E-Mail yet, please click <a href="index_logged.php?mod=showCode">here</a>!
+				<br>If you haven't got an verification E-Mail yet, please click <a href="index_logged.php?mod=showCode">here</a>!
 				<br>
-				<br>If the Verification doesn't work then anymore contact and Pacman-Admin under pacman-admin@dasdarki.de
-				<br>or contact the Site Admin under admin@dasdarki.de
+				<br>If the Verification doesn't work anymore then contact the Pacman-Admin under pacman-admin@dasdarki.de
+				<br>or contact the site Admin under admin@dasdarki.de
 				<br>
-				<br>Key-Verification:
+				<br>Key-verification:
 				</p>
 				<form method="post" action="index_logged.php?cmd=verify">
 					<p>
@@ -121,7 +121,7 @@ if(!isset($_SESSION["login"])){
 		}else if($_GET["mod"] == "showCode"){
 			?>
 				<h1>Verification</h1>
-				<p>You are still not verified yet. Please verify your Account. Otherwise we will delete your Account. 
+				<p>You are still not verified yet. Please verify your account. Otherwise we will delete your account. 
 				<br>Time remaining: <?php ?>
 				<br>
 				<br>Key: 
@@ -140,12 +140,12 @@ if(!isset($_SESSION["login"])){
 		    		}
 					?>
 				</strong>
-				<br>Hide Key by clicking <a href="index_logged.php?mod=verification">here</a>!
+				<br>Hide key by clicking <a href="index_logged.php?mod=verification">here</a>!
 				<br>
-				<br>If the Verification doesn't work then anymore contact and Pacman-Admin under pacman-admin@dasdarki.de
-				<br>or contact the Site Admin under admin@dasdarki.de
+				<br>If the verification doesn't work anymore then contact the Pacman-Admin under pacman-admin@dasdarki.de
+				<br>or contact the site Admin under admin@dasdarki.de
 				<br>
-				<br>Key-Verification:
+				<br>Key-verification:
 				</p>
 				<form method="post" action="index_logged.php?cmd=verify">
 					<p>
@@ -159,7 +159,7 @@ if(!isset($_SESSION["login"])){
 		}else if($_GET["mod"] == "top5"){
 			?>
 				<img src="http://i.imgur.com/yinMEGA.png" id="top10Img">
-				<p id="topText">This are the Top 5 Players. If you want to be one of them beat one of their Scores!</p>
+				<p id="topText">This are the Top 5 players. If you want to be one of them beat one of their scores!</p>
 			<?php
 			##############################
 			$count = 5; #----# Can Be Edit
@@ -194,11 +194,11 @@ if(!isset($_SESSION["login"])){
 		}else if($_GET["mod"] == "download"){
 			?>
 				<h1>Download</h1>
-				<p>Pacman is written in C# so you need the .NET Framework. You can download it on the Microsoft Site.
-				<br>Just click the Button under the .NET Framework Picture.<br>
+				<p>Pacman is written in C# so you need the .NET Framework. You can download it on the Microsoft website.
+				<br>Just click the button under the .NET Framework Picture.<br>
 				<img src="http://i.imgur.com/TVlxPGq.png" id="netImg" style="width: 64; height: 64;"><br>
 				<a href="https://www.microsoft.com/en-gb/download/details.aspx?id=48130">To Site</a><br>
-				<br>Because it's written in C# you need an OS thats compatible with .NET Framework. To Download the Game just click the Button under the Windows Symbol<br>
+				<br>Because it is written in C# you need an OS that is compatible with .NET Framework. to download the game just click the button under the Windows symbol<br>
 				<img src="http://i.imgur.com/VbJ6T1V.png" id="winImg" style="width: 64; height: 64;"><br>
 				<a href="">Download</a>
 				</p>
