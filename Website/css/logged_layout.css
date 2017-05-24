@@ -1,0 +1,258 @@
+body, html{
+	margin:0;
+  	padding:0;
+  	width:100%;
+  	height:160%;
+  	background: #64f4fc;
+  	font-family: 'Roboto', sans-serif;
+  	font-weight: 300;
+}
+
+#titleImg{
+  width: 50%;
+  height: 100px;
+  top: 0px;
+  left: calc(50%);
+}
+
+#header #verify{
+  position: absolute;
+  top: 15px;
+  left: 240px;
+  font-size: 30px;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  width: 110px;
+  height: 70px;
+  font-weight: 100;
+  border-radius: 3;
+  background: #0030b3;
+  text-align: center;
+  border: none;
+}
+
+#netImg{
+  width: 128px;
+  height: 128px;
+}
+
+#header #verify:hover{
+  cursor: pointer;
+  background: #212328;
+}
+
+#siteBody ul{
+  color: black;
+  font-size: 30px;
+  font-weight: 100;
+  list-style-type: none;
+  text-align: center;
+}
+
+#siteBody li{
+  color: black;
+  font-size: 30px;
+  font-weight: 100;
+  list-style-type: none;
+  text-align: center;
+}
+
+#siteBody #marginDown{
+  margin-bottom: 20px;
+}
+
+#siteBody a{
+  text-decoration: none;
+  color: #fff;
+  width: 100;
+  background: #0030b3;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 1px;
+  padding: 5px;
+  font-weight: 100;
+}
+
+#siteBody a:hover{
+  cursor: pointer;
+  background: #212328;
+}
+
+#header #top10{
+  position: absolute;
+  top: 15px;
+  left: 365px;
+  font-size: 30px;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  width: 110px;
+  height: 70px;
+  font-weight: 100;
+  border-radius: 3;
+  background: #0030b3;
+  text-align: center;
+  border: none;
+}
+
+#header #top10:hover{
+  cursor: pointer;
+  background: #212328;
+}
+
+#header #download{
+  position: absolute;
+  top: 15px;
+  left: 240px;
+  font-size: 20px;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  width: 110px;
+  height: 70px;
+  font-weight: 100;
+  border-radius: 3;
+  background: #0030b3;
+  text-align: center;
+  border: none;
+}
+
+#siteBody h1{
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 50px;
+  position: relative;
+  top: 10px;
+}
+
+#siteBody p{
+  text-align: center;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  position: relative;
+  top: 25px;
+}
+
+#siteBody #top10Img{
+  width: 100%;
+  height: 25%;
+}
+
+#header #download:hover{
+  cursor: pointer;
+  background: #212328;
+}
+
+#siteBody{
+  background: #fff;
+  box-shadow: 0 0 30px 1px #0d0e10;
+  position: relative;
+  left: 35%;
+  top: 5%;
+  width: 30%;
+  height: calc(34% + 15px);
+}
+
+#header #admin{
+  position: relative;
+  top: -105px;
+  right: calc(68% * (-1));
+  font-size: 30px;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  width: 110px;
+  height: 70px;
+  font-weight: 100;
+  border-radius: 3;
+  background: #0030b3;
+  text-align: center;
+  border: none;
+}
+
+#header #admin:hover{
+  cursor: pointer;
+  background: #212328;
+}
+
+#header h1{
+	position: absolute;
+  	top: 15px;
+  	left: 20px;
+  	background: #0030b3;
+  	width: 75px;
+  	height: 40px;
+  	text-align: center;
+  	border-radius: 3px;
+  	z-index: 100;
+  	display: block;
+  	font-family: 'Roboto', sans-serif;
+  	font-size: 30px;
+  	color: #fff;
+  	margin: 0;
+  	font-weight: 100;
+  	padding: 15px 0 15px 0;
+}
+
+#header h1:hover{
+	background: #212328;
+	cursor: pointer;
+}
+
+#siteBody #keyTextBox{
+  top: -25px;
+  position: relative;
+  width: 70%;
+  padding: 5%;
+  margin: 0 10% 15px 10%;
+  background: #f4f4f4;
+  border: none;
+  font-size: 20px;
+  outline: none;
+}
+
+#siteBody #verifyButton{
+  position: relative;
+  color: #fff;
+  background: #0030b3;
+  border: none;
+  border-radius: 3px;
+  font-weight: 100;
+  width: 110px;
+  height: 50px;
+  top: -60px;
+}
+
+#header h2{
+	position: absolute;
+  	top: 15px;
+  	left: 115px;
+  	background: #0030b3;
+  	width: 110px;
+  	height: 40px;
+  	text-align: center;
+  	border-radius: 3px;
+  	z-index: 100;
+  	display: block;
+  	font-family: 'Roboto', sans-serif;
+  	font-size: 30px;
+  	color: #fff;
+  	margin: 0;
+  	font-weight: 100;
+  	padding: 15px 0 15px 0;
+}
+
+#header h2:hover{
+	background: #212328;
+	cursor: pointer;
+}
+
+#header{
+	padding: 0 25% 0 25%;
+    width:100%;
+    position:absolute;
+    height: 100px;
+    top:0px;
+    background: #0044ff;
+    margin:0px auto;
+    box-shadow: 0 0 30px 1px #0d0e10;
+}
