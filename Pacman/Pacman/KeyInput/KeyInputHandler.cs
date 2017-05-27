@@ -13,11 +13,14 @@ namespace Pacman.KeyInput
         /// <summary>
         /// The Form
         /// </summary>
-        public Form Form;
+        public Form Form { get; private set; }
 
         private List<IKeyInput> handlingKeyInputs;
         private Thread keyInputThread;
         private List<Keys> pressedKeys;
+
+        private Keys pressedKey;
+
         private bool allowHold;
         private ThreadingMode mode;
 
@@ -44,12 +47,14 @@ namespace Pacman.KeyInput
 
         private void Form_KeyUp(object sender, KeyEventArgs e)
         {
+            //pressedKey = Keys.None;
             if (pressedKeys.Contains(e.KeyCode))
                 pressedKeys.Remove(e.KeyCode);
         }
 
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
+            //pressedKey = e.KeyCode;
             if (!pressedKeys.Contains(e.KeyCode))
                 pressedKeys.Add(e.KeyCode);
         }
@@ -90,6 +95,13 @@ namespace Pacman.KeyInput
             {
                 try
                 {
+                    //if(pressedKey != Keys.None)
+                    //{
+                    //    foreach (IKeyInput keyInput in handlingKeyInputs)
+                    //    {
+                    //        keyInput.OnKeyInput(pressedKey);
+                    //    }
+                    //}
                     List<Keys> keys = pressedKeys;
                     foreach (Keys key in keys)
                     {
@@ -115,6 +127,9 @@ namespace Pacman.KeyInput
                             continue;
                         case ThreadingMode.Second1:
                             Thread.Sleep(1000);
+                            continue;
+                        case ThreadingMode.Milli500:
+                            Thread.Sleep(250);
                             continue;
                     }
                 }

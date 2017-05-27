@@ -20,7 +20,8 @@ namespace Pacman.Entities
         public int Height { get; private set; }
         public bool Energized { get; set; }
         public Collider PlayerCollider { get; private set; }
-        
+
+        private bool pacmanOpened;
 
         public Player(Control parent, Level level, int width, int height)
         {
@@ -28,6 +29,7 @@ namespace Pacman.Entities
             PlayerCollider = new Collider(level, this);
             this.Width = width;
             this.Height = height;
+            pacmanOpened = true;
         }
 
         public void Spawn(int x, int y)
@@ -39,23 +41,56 @@ namespace Pacman.Entities
 
         public void Render(Graphics g)
         {
-            OpenPacMan(g);
+            if (!pacmanOpened)
+                OpenPacMan(g);
+            else
+                ClosePacMan(g);
         }
 
         public void OpenPacMan(Graphics g)
         {
             g.FillEllipse(new SolidBrush(Color.Gold), X, Y, Width, Height);
             g.FillPie(new SolidBrush(Color.Black), X, Y, Width, Height, -40, 80);
+            pacmanOpened = true;
         }
 
         public void ClosePacMan(Graphics g)
         {
             g.FillEllipse(new SolidBrush(Color.Gold), X, Y, Width, Height);
+            pacmanOpened = false;
         }
 
         public void OnCollide(CollideResult result)
         {
             
+        }
+        
+        public void OnNoneCollide(int toX, int toY)
+        {
+            PlayerRenderer.Clear(X, Y);
+            PlayerRenderer.DoRender(toX, toY);
+            X = toX;
+            Y = toY;
+        }
+
+        public void Move(Keys key)
+        {
+            if(key == Keys.W)
+            {
+                PlayerCollider.OnMove(X, Y - 16);
+            }
+            else if(key == Keys.S)
+            {
+                PlayerCollider.OnMove(X, Y + 16);
+            }
+            else if(key == Keys.A)
+            {
+                PlayerCollider.OnMove(X - 16, Y);
+            }
+            else if(key == Keys.D)
+            {
+                PlayerCollider.OnMove(X + 16, Y);
+            }
         }
     }
 }
