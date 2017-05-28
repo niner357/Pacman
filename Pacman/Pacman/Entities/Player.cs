@@ -8,6 +8,7 @@ using Pacman.Rendering;
 using System.Windows.Forms;
 using Pacman.Collision;
 using Pacman.Map;
+using System.Threading;
 
 namespace Pacman.Entities
 {
@@ -91,6 +92,7 @@ namespace Pacman.Entities
             {
                 PlayerCollider.OnMove(X + 16, Y);
             }
+            Thread.Sleep(250);
         }
     }
 }

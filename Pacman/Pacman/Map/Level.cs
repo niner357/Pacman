@@ -26,7 +26,7 @@ namespace Pacman.Map
         public Level(Form form, Control parent, LevelDecoder decoder)
         {
             Form = form;
-            KeyInputHandler = new KeyInputHandler(form, true, ThreadingMode.Milli500);
+            KeyInputHandler = new KeyInputHandler(form, true, ThreadingMode.None);
             EventKeyInput eventKeyInput = new EventKeyInput();
             eventKeyInput.KeyInput += EventKeyInput_KeyInput;
             KeyInputHandler.RegisterKeyInput(eventKeyInput);
