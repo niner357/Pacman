@@ -23,15 +23,17 @@ namespace Pacman.Collision
         public void OnMove(int toX, int toY)
         {
             CollideResult result = CheckForCollision(toX, toY);
-            if(result.Collision)
+            if (result.Collision)
                 Collidable.OnCollide(result);
+            else
+                Collidable.OnNoneCollide(toX, toY);
         }
 
         private CollideResult CheckForCollision(int toX, int toY)
         {
             Tile tile = Level.GetTile(toX, toY);
             if (tile == null)
-                return new CollideResult(true, CollisionType.Side);
+                return new CollideResult(false, CollisionType.Side); //TODO false = true
             if (tile.Type == TileType.Wall)
                 return new CollideResult(true, CollisionType.Wall);
             //TODO ENEMY COLLISION DETECTION

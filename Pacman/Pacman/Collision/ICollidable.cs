@@ -9,5 +9,7 @@ namespace Pacman.Collision
     public interface ICollidable
     {
         void OnCollide(CollideResult result);
+
+        void OnNoneCollide(int toX, int toY);
     }
 }

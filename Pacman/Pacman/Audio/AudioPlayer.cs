@@ -17,5 +17,10 @@ namespace Pacman.Audio
             MusicPlayer = new MusicPlayer();
             SoundPlayer = new SoundPlayer(MusicPlayer);
         }
+
+        public void StopAll()
+        {
+            MusicPlayer.Stop(MusicPlayer.MusicWaveOut);
+        }
     }
 }

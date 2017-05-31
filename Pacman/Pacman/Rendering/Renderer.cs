@@ -38,14 +38,24 @@ namespace Pacman.Rendering
 
         public void DoRender()
         {
-            Renderable.Render(bufferGraphics);
-            screenGraphics.DrawImage(bufferBitmap, 0, 0);
+            DoRender(0, 0);
         }
 
         public void DoRender(int x, int y)
         {
             Renderable.Render(bufferGraphics);
             screenGraphics.DrawImage(bufferBitmap, x, y);
+        }
+
+        public void Clear(int x, int y)
+        {
+            bufferGraphics.Clear(Color.Black);
+            screenGraphics.DrawImage(bufferBitmap, x, y);
+        }
+
+        public void Clear()
+        {
+            Clear(0, 0);
         }
     }
 }
