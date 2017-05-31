@@ -8,9 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Pacman</RootNamespace>
     <AssemblyName>Pacman</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NAudio, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.1.8.0\lib\net35\NAudio.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,14 +53,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs" />
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Audio\AudioPlay.cs" />
+    <Compile Include="Audio\AudioPlayer.cs" />
+    <Compile Include="Audio\MusicPlayer.cs" />
+    <Compile Include="Audio\Sound.cs" />
+    <Compile Include="Audio\SoundPlayer.cs" />
+    <Compile Include="Collision\Collider.cs" />
+    <Compile Include="Collision\CollideResult.cs" />
+    <Compile Include="Collision\CollisionType.cs" />
+    <Compile Include="Collision\ICollidable.cs" />
+    <Compile Include="Controls\ControlManager.cs" />
+    <Compile Include="Controls\GameControl.cs" />
+    <Compile Include="Controls\GameLabel.cs" />
+    <Compile Include="Entities\Player.cs" />
+    <Compile Include="Extension\GDIExtension.cs" />
+    <Compile Include="GameForm.cs">
+      <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GameForm.Designer.cs">
+      <DependentUpon>GameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KeyInput\EventKeyInput.cs" />
+    <Compile Include="KeyInput\IKeyInput.cs" />
+    <Compile Include="KeyInput\KeyInputHandler.cs" />
+    <Compile Include="KeyInput\SimpleKeyInput.cs" />
+    <Compile Include="KeyInput\ThreadingMode.cs" />
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Map\Level.cs" />
+    <Compile Include="Map\LevelDecoder.cs" />
+    <Compile Include="Map\Tile.cs" />
+    <Compile Include="Map\TileType.cs" />
+    <Compile Include="MySQL\Database.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Rendering\IRenderable.cs" />
+    <Compile Include="Rendering\Renderer.cs" />
+    <Compile Include="Utils\FontManager.cs" />
+    <EmbeddedResource Include="GameForm.resx">
+      <DependentUpon>GameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -62,7 +108,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +123,73 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PixelFont.ttf" />
+    <None Include="Resources\res_music1.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music2.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music3.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music4.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music5.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music6.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music7.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music8.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music9.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music10.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music11.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music12.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music13.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music14.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music15.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music16.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music17.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music18.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music19.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_music20.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login-button-png-13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\res_sound_energize.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

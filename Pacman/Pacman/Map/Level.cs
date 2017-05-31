@@ -27,7 +27,19 @@ namespace Pacman.Map
 
         public void Render(Graphics g)
         {
+            foreach(Tile tile in Grid)
+            {
+                switch(tile.Type)
+                {
+                    case TileType.Way:
 
+                        break;
+
+                    case TileType.Wall:
+                        break;
+
+                }
+            }
         }
 
         public Tile GetTile(int x, int y)
