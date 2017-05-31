@@ -8,6 +8,6 @@ namespace Pacman.KeyInput
 {
     public enum ThreadingMode
     {
-        None, Milli1, Milli10, Milli100, Second1
+        None, Milli1, Milli10, Milli100, Second1, Milli500
     }
 }
