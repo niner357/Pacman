@@ -23,6 +23,8 @@ namespace Pacman.Entities
         public Collider PlayerCollider { get; private set; }
 
         private bool pacmanOpened;
+        private bool aPressed;
+        private int angle;
 
         public Player(Control parent, Level level, int width, int height)
         {
@@ -31,6 +33,8 @@ namespace Pacman.Entities
             this.Width = width;
             this.Height = height;
             pacmanOpened = true;
+            aPressed = false;
+            angle = -40;
         }
 
         public void Spawn(int x, int y)
@@ -51,7 +55,12 @@ namespace Pacman.Entities
         public void OpenPacMan(Graphics g)
         {
             g.FillEllipse(new SolidBrush(Color.Gold), X, Y, Width, Height);
-            g.FillPie(new SolidBrush(Color.Black), X, Y, Width, Height, -40, 80);
+            g.FillPie(new SolidBrush(Color.Black), X, Y, Width, Height, angle, 80);
+            if (aPressed)
+            {
+                g.FillRectangle(new SolidBrush(Color.Black), X, Y + 20, Width / 100, Height / 100);
+                aPressed = false;
+            }
             pacmanOpened = true;
         }
 
@@ -78,18 +87,23 @@ namespace Pacman.Entities
         {
             if(key == Keys.W)
             {
+                angle = -130;
                 PlayerCollider.OnMove(X, Y - 16);
             }
             else if(key == Keys.S)
             {
+                angle = 50;
                 PlayerCollider.OnMove(X, Y + 16);
             }
             else if(key == Keys.A)
             {
+                angle = 135;
+                aPressed = true;
                 PlayerCollider.OnMove(X - 16, Y);
             }
             else if(key == Keys.D)
             {
+                angle = -40;
                 PlayerCollider.OnMove(X + 16, Y);
             }
             Thread.Sleep(250);
