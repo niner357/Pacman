@@ -34,17 +34,16 @@
             // fieldPanel
             // 
             this.fieldPanel.BackColor = System.Drawing.Color.Black;
-            this.fieldPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fieldPanel.Location = new System.Drawing.Point(0, 0);
             this.fieldPanel.Name = "fieldPanel";
-            this.fieldPanel.Size = new System.Drawing.Size(688, 528);
+            this.fieldPanel.Size = new System.Drawing.Size(512, 512);
             this.fieldPanel.TabIndex = 0;
             // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 528);
+            this.ClientSize = new System.Drawing.Size(524, 522);
             this.Controls.Add(this.fieldPanel);
             this.Name = "GameForm";
             this.Text = "GameForm";

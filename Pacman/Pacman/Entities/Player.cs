@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Pacman.Collision;
 using Pacman.Map;
 using System.Threading;
+using System.Runtime.InteropServices;
 
 namespace Pacman.Entities
 {
@@ -23,17 +24,16 @@ namespace Pacman.Entities
         public Collider PlayerCollider { get; private set; }
 
         private bool pacmanOpened;
-        private bool aPressed;
         private int angle;
 
         public Player(Control parent, Level level, int width, int height)
         {
+            AllocConsole();
             PlayerRenderer = new Renderer(parent, this);
             PlayerCollider = new Collider(level, this);
             this.Width = width;
             this.Height = height;
             pacmanOpened = true;
-            aPressed = false;
             angle = -40;
         }
 
@@ -56,11 +56,6 @@ namespace Pacman.Entities
         {
             g.FillEllipse(new SolidBrush(Color.Gold), X, Y, Width, Height);
             g.FillPie(new SolidBrush(Color.Black), X, Y, Width, Height, angle, 80);
-            if (aPressed)
-            {
-                g.FillRectangle(new SolidBrush(Color.Black), X, Y + 20, Width / 100, Height / 100);
-                aPressed = false;
-            }
             pacmanOpened = true;
         }
 
@@ -83,28 +78,35 @@ namespace Pacman.Entities
             Y = toY;
         }
 
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool AllocConsole();
+
         public void Move(Keys key)
         {
             if(key == Keys.W)
             {
                 angle = -130;
-                PlayerCollider.OnMove(X, Y - 16);
+                PlayerCollider.OnMove(X, Y - Height);
+                Console.WriteLine("Pos: " + X + "; " + Y);
             }
             else if(key == Keys.S)
             {
                 angle = 50;
-                PlayerCollider.OnMove(X, Y + 16);
+                PlayerCollider.OnMove(X, Y + Height);
+                Console.WriteLine("Pos: " + X + "; " + Y);
             }
             else if(key == Keys.A)
             {
                 angle = 135;
-                aPressed = true;
-                PlayerCollider.OnMove(X - 16, Y);
+                PlayerCollider.OnMove(X - Width, Y);
+                Console.WriteLine("Pos: " + X + "; " + Y);
             }
             else if(key == Keys.D)
             {
                 angle = -40;
-                PlayerCollider.OnMove(X + 16, Y);
+                PlayerCollider.OnMove(X + Width, Y);
+                Console.WriteLine("Pos: " + X + "; " + Y);
             }
             Thread.Sleep(250);
         }
