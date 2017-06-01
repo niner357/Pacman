@@ -61,6 +61,8 @@ namespace Pacman.Map
             {
                 for (int x = 0; x < Height; x += tileHeight)
                 {
+                    if (inputStr.ToCharArray().Length < i + 1)
+                        continue;
                     char c = inputStr.ToCharArray()[i];
                     i++;
                     switch (c)

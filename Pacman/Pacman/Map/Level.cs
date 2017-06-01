@@ -32,8 +32,9 @@ namespace Pacman.Map
             KeyInputHandler.RegisterKeyInput(eventKeyInput);
             KeyInputHandler.Start();
             form.FormClosing += Form_FormClosing;
-            //Grid = decoder.DecodeLevel();
+            Grid = decoder.DecodeLevel();
             LevelRenderer = new Renderer(parent, this);
+            
             Player = new Player(parent, this, decoder.Width / 32, decoder.Height / 32);
         }
 
@@ -49,6 +50,39 @@ namespace Pacman.Map
 
         public void Render(Graphics g)
         {
+            foreach (Tile tile in Grid)
+            {
+                switch (tile.Type)
+                {
+                    case TileType.Way:
+                        g.FillRectangle(new SolidBrush(Color.Black),new Rectangle(tile.X,tile.Y,tile.Width,tile.Height));
+                        if(tile.Child!=null)
+                        {
+                            if (tile.Child.Type == TileType.Point)
+                            {
+                                //TO DO
+                                //g.FillRectangle(new SolidBrush(Color.BurlyWood),new Rectangle(tile.X/4,tile.Y/4,tile.Width/2,tile.Height/2));
+                            }
+                            else if (tile.Child.Type == TileType.Fruit)
+                            {
+                                //TO DO
+                            }
+                            else if (tile.Type == TileType.Power)
+                            {
+                                //TO DO
+                            }
+                        }
+                        break;
+
+                    case TileType.Wall:
+                        g.FillRectangle(new SolidBrush(Color.DarkBlue), new Rectangle(tile.X, tile.Y, tile.Width, tile.Height));
+                        break;
+
+                    case TileType.Power:
+                        g.FillEllipse(new SolidBrush(Color.BurlyWood), tile.X, tile.Y, tile.Width, tile.Height);
+                        break;
+                }
+            }
         }
 
         public Tile GetTile(int x, int y)
