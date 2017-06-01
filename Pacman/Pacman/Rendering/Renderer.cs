@@ -12,38 +12,34 @@ namespace Pacman.Rendering
     {
         public Control Control { get; private set; }
 
-        public IRenderable Renderable { get; private set; }
+        public IRenderable PlayerRenderable { get; private set; }
+        public IRenderable LevelRenderable { get; private set; }
 
         private Bitmap bufferBitmap;
         private Graphics bufferGraphics;
         private Graphics screenGraphics;
 
-        public Renderer(Control control, IRenderable renderable)
+        int width, height;
+
+        public Renderer(Control control, IRenderable playerRenderable, IRenderable lvlRenderable)
         {
             Control = control;
-            Renderable = renderable;
+            PlayerRenderable = playerRenderable;
+            LevelRenderable = lvlRenderable;
             bufferBitmap = new Bitmap(control.Width, Control.Height);
             bufferGraphics = Graphics.FromImage(bufferBitmap);
             screenGraphics = control.CreateGraphics();
         }
 
-        public Renderer(Control control, IRenderable renderable, int width, int height)
+        public void DoWorldRender()
         {
-            Control = control;
-            Renderable = renderable;
-            bufferBitmap = new Bitmap(width, height);
-            bufferGraphics = Graphics.FromImage(bufferBitmap);
-            screenGraphics = control.CreateGraphics();
+            LevelRenderable.Render(bufferGraphics);
+            screenGraphics.DrawImage(bufferBitmap, 0, 0);
         }
 
-        public void DoRender()
+        public void DoPlayerRender(int x, int y)
         {
-            DoRender(0, 0);
-        }
-
-        public void DoRender(int x, int y)
-        {
-            Renderable.Render(bufferGraphics);
+            PlayerRenderable.Render(bufferGraphics);
             screenGraphics.DrawImage(bufferBitmap, x, y);
         }
 

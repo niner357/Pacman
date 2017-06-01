@@ -15,7 +15,6 @@ namespace Pacman.Entities
 {
     public class Player : IRenderable, ICollidable
     {
-        public Renderer PlayerRenderer { get; private set; }
         public int X { get; private set; }
         public int Y { get; private set; }
         public int Width { get; private set; }
@@ -23,17 +22,21 @@ namespace Pacman.Entities
         public bool Energized { get; set; }
         public Collider PlayerCollider { get; private set; }
 
+        private RendererPanel renderer;
+
         private bool pacmanOpened;
         private int angle;
+        private Level level;
 
-        public Player(Control parent, Level level, int width, int height)
+        public Player(RendererPanel renderer, Level level, int width, int height)
         {
             AllocConsole();
-            PlayerRenderer = new Renderer(parent, this);
+            this.level = level;
             PlayerCollider = new Collider(level, this);
             this.Width = width;
             this.Height = height;
             pacmanOpened = true;
+            this.renderer = renderer;
             angle = -40;
         }
 
@@ -41,7 +44,7 @@ namespace Pacman.Entities
         {
             this.X = x;
             this.Y = y;
-            PlayerRenderer.DoRender(x, y);
+            renderer.DoRender();
         }
 
         public void Render(Graphics g)
@@ -72,8 +75,7 @@ namespace Pacman.Entities
         
         public void OnNoneCollide(int toX, int toY)
         {
-            PlayerRenderer.Clear(X, Y);
-            PlayerRenderer.DoRender(toX, toY);
+            renderer.DoRender();
             X = toX;
             Y = toY;
         }
