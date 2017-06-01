@@ -43,39 +43,35 @@
             this.registerButton.Location = new System.Drawing.Point(136, 150);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(75, 23);
-            this.registerButton.TabIndex = 0;
+            this.registerButton.TabIndex = 3;
             this.registerButton.Text = "Register";
             this.registerButton.UseVisualStyleBackColor = true;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
-            this.registerButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.registerButton_KeyDown);
             // 
             // loginButton
             // 
             this.loginButton.Location = new System.Drawing.Point(55, 150);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(75, 23);
-            this.loginButton.TabIndex = 1;
+            this.loginButton.TabIndex = 2;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
-            this.loginButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.loginButton_KeyDown);
             // 
             // passwordTextBox
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(76, 124);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(185, 20);
-            this.passwordTextBox.TabIndex = 2;
+            this.passwordTextBox.TabIndex = 1;
             this.passwordTextBox.UseSystemPasswordChar = true;
-            this.passwordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTextBox_KeyDown);
             // 
             // usernameTextBox
             // 
             this.usernameTextBox.Location = new System.Drawing.Point(76, 92);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(185, 20);
-            this.usernameTextBox.TabIndex = 3;
-            this.usernameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.usernameTextBox_KeyDown);
+            this.usernameTextBox.TabIndex = 0;
             // 
             // passwordLabel
             // 
