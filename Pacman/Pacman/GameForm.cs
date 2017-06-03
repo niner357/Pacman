@@ -27,21 +27,31 @@ namespace Pacman
             //parent.Hide();
             InitializeComponent();
             level = new Level(this, new LevelDecoder("G:\\RunLengthEncoding\\Das ist ein LvL.jan", 512, 512));
-            //controlManager = new ControlManager(this);
-            GameLabel label = new GameLabel("Pac-Man", 50, Color.Gold);
+            controlManager = new ControlManager(level.RendererPanel);
+            GameLabel label = new GameLabel(0, "Pac-Man", 50, Color.Gold);
             label.Location = new Point(10, 10);
-            //controlManager.AddControl(label);
-            //controlManager.Initialize(bufferBitmap, bufferGraphics, screenGraphics);
+            controlManager.OnControlClick += ControlManager_OnControlClick;
+            controlManager.AddControl(label);
+            controlManager.Initialize();
             audioPlayer = new AudioPlayer();
             audioPlayer.MusicPlayer.PlayNext();
             Show();
-            //level.Player.Spawn(100, 100);
+        }
+
+        private void ControlManager_OnControlClick(GameControl source, MouseButtons btn)
+        {
+            controlManager.HideControl(source.Id);
         }
 
         private void GameForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             audioPlayer.StopAll();
             //parentForm.Close();
+        }
+
+        private void GameForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            controlManager.ShowControl(0);
         }
     }
 }

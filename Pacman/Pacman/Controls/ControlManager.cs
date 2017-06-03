@@ -44,7 +44,8 @@ namespace Pacman.Controls
 
                     if (inControl == null)
                         inControl = control;
-                    control.OnEnterRender(bufferGraphics);
+                    if(control.Visible)
+                        control.OnEnterRender(bufferGraphics);
                     if (OnControlEnter != null)
                         OnControlEnter(control);
                     if (bufferBitmap == null)
@@ -58,7 +59,8 @@ namespace Pacman.Controls
                         if (inControl == control)
                         {
                             inControl = null;
-                            control.OnLeaveRender(bufferGraphics);
+                            if (control.Visible)
+                                control.OnLeaveRender(bufferGraphics);
                             if (OnControlLeave != null)
                                 OnControlLeave(control);
                             if (bufferBitmap == null)
@@ -70,6 +72,38 @@ namespace Pacman.Controls
             }
         }
 
+        public void HideControl(int id)
+        {
+            GameControl control = GetControl(id);
+            if (control == null)
+                return;
+            if (!control.Visible)
+                return;
+            bufferGraphics.FillRectangle(new SolidBrush(parent.BackColor), control.Location.X-1, control.Location.Y-1, control.Width+1, control.Height+1);
+            screenGraphics.DrawImage(bufferBitmap, 0, 0);
+            control.Visible = false;
+        }
+
+        public void ShowControl(int id)
+        {
+            GameControl control = GetControl(id);
+            if (control == null)
+                return;
+            if (control.Visible)
+                return;
+            control.OnInitRender(bufferGraphics);
+            screenGraphics.DrawImage(bufferBitmap, 0, 0);
+            control.Visible = true;
+        }
+
+        public GameControl GetControl(int id)
+        {
+            foreach (GameControl control in controls)
+                if (control.Id == id)
+                    return control;
+            return null;
+        }
+
         private void Parent_MouseClick(object sender, MouseEventArgs e)
         {
             foreach (GameControl control in controls)
@@ -78,10 +112,12 @@ namespace Pacman.Controls
                 {
                     if (OnControlClick != null)
                         OnControlClick(control, e.Button);
-                    control.OnActivateRender(bufferGraphics);
+                    if (control.Visible)
+                        control.OnActivateRender(bufferGraphics);
                     screenGraphics.DrawImage(bufferBitmap, 0, 0);
                     Thread.Sleep(200);
-                    control.OnInitRender(bufferGraphics);
+                    if (control.Visible)
+                        control.OnInitRender(bufferGraphics);
                     screenGraphics.DrawImage(bufferBitmap, 0, 0);
                 }
             }
@@ -90,14 +126,17 @@ namespace Pacman.Controls
         public void AddControl(GameControl control)
         {
             if (!controls.Contains(control))
+            {
+                control.Visible = true;
                 controls.Add(control);
+            }
         }
 
-        public void Initialize(Bitmap bufferBitmap, Graphics bufferGraphics, Graphics screenGraphics)
+        public void Initialize()
         {
-            this.bufferBitmap = bufferBitmap;
-            this.bufferGraphics = bufferGraphics;
-            this.screenGraphics = screenGraphics;
+            bufferBitmap = new Bitmap(parent.Width, parent.Height);
+            bufferGraphics = Graphics.FromImage(bufferBitmap);
+            screenGraphics = parent.CreateGraphics();
 
             foreach (GameControl control in controls)
             {
