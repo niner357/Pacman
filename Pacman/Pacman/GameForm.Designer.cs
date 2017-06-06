@@ -28,33 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.fieldPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
-            // 
-            // fieldPanel
-            // 
-            this.fieldPanel.BackColor = System.Drawing.Color.Black;
-            this.fieldPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fieldPanel.Location = new System.Drawing.Point(0, 0);
-            this.fieldPanel.Name = "fieldPanel";
-            this.fieldPanel.Size = new System.Drawing.Size(688, 528);
-            this.fieldPanel.TabIndex = 0;
             // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 528);
-            this.Controls.Add(this.fieldPanel);
+            this.ClientSize = new System.Drawing.Size(524, 522);
             this.Name = "GameForm";
             this.Text = "GameForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GameForm_FormClosing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameForm_KeyDown);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel fieldPanel;
     }
 }

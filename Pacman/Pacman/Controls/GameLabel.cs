@@ -17,8 +17,9 @@ namespace Pacman.Controls
 
         public Color Color { get; private set; }
 
-        public GameLabel(string text, float size, Color color)
+        public GameLabel(int id, string text, float size, Color color)
         {
+            Id = id;
             Text = text;
             Color = color;
             FontSize = size;

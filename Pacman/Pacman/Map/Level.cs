@@ -15,7 +15,7 @@ namespace Pacman.Map
     {
         public Tile[] Grid { get; private set; }
 
-        public Renderer LevelRenderer { get; private set; }
+        public Renderer Renderer { get; private set; }
 
         public Player Player { get; private set; }
 
@@ -23,18 +23,27 @@ namespace Pacman.Map
 
         public KeyInputHandler KeyInputHandler { get; private set; }
 
-        public Level(Form form, Control parent, LevelDecoder decoder)
+        public RendererPanel RendererPanel { get; private set; }
+
+        public Level(Form form, LevelDecoder decoder)
         {
             Form = form;
+            RendererPanel = new RendererPanel(Render);
+            RendererPanel.Width = 512;
+            RendererPanel.Height = 512;
+            RendererPanel.Location = new Point(0, 0);
+            Player = new Player(RendererPanel, this, RendererPanel.Width / 32, RendererPanel.Height / 32);
+            RendererPanel.PlayerRenderAction = Player.Render;
+            RendererPanel.DoRender();
+            form.Controls.Add(RendererPanel);
             KeyInputHandler = new KeyInputHandler(form, true, ThreadingMode.None);
             EventKeyInput eventKeyInput = new EventKeyInput();
             eventKeyInput.KeyInput += EventKeyInput_KeyInput;
             KeyInputHandler.RegisterKeyInput(eventKeyInput);
             KeyInputHandler.Start();
             form.FormClosing += Form_FormClosing;
-            //Grid = decoder.DecodeLevel();
-            LevelRenderer = new Renderer(parent, this);
-            Player = new Player(parent, this, decoder.Width / 32, decoder.Height / 32);
+            Grid = decoder.DecodeLevel();
+            Player.Spawn(16, 16);
         }
 
         private void Form_FormClosing(object sender, FormClosingEventArgs e)
@@ -49,7 +58,7 @@ namespace Pacman.Map
 
         public void Render(Graphics g)
         {
-
+            
         }
 
         public Tile GetTile(int x, int y)
