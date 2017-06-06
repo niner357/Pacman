@@ -42,6 +42,10 @@ namespace Pacman
             Show();
             level.Player.Spawn(100, 100);
         }
+        public GameForm()
+        {
+
+        }
 
         private void GameForm_FormClosing(object sender, FormClosingEventArgs e)
         {
