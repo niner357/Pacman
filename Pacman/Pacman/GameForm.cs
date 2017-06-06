@@ -42,10 +42,6 @@ namespace Pacman
         {
             controlManager.HideControl(source.Id);
         }
-        public GameForm()
-        {
-
-        }
 
         private void GameForm_FormClosing(object sender, FormClosingEventArgs e)
         {

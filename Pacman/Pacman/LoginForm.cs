@@ -21,7 +21,7 @@ namespace Pacman
         {
             InitializeComponent();
         }
-        public bool optionClosed { get; set; }
+
         private void registerButton_Click(object sender, EventArgs e)
         {
             Process.Start("http://dasdarki.de/pacman/register.php");
@@ -52,10 +52,7 @@ namespace Pacman
             {
                 if(dataset == "True")
                 {
-                    OptionForm optionForm = new OptionForm();
-                    optionForm.Show();
-                    Close();
-                    
+                    GameForm form = new GameForm(this);
                 }
                 else
                 {
