@@ -26,17 +26,16 @@ namespace Pacman
             parentForm = parent;
             //parent.Hide();
             InitializeComponent();
-            level = new Level(this, new LevelDecoder("C:\\Users\\iah51hufnagel\\Desktop\\Das ist ein LvL.jan", 512, 512));
+            level = new Level(this, new LevelDecoder("Z:\\profile.V2\\Documents\\Das ist ein LvL.jan", 512, 512));
             controlManager = new ControlManager(level.RendererPanel);
             GameLabel label = new GameLabel(0, "Pac-Man", 50, Color.Gold);
             label.Location = new Point(10, 10);
             controlManager.OnControlClick += ControlManager_OnControlClick;
-            //controlManager.AddControl(label);
+            controlManager.AddControl(label);
             controlManager.Initialize();
             audioPlayer = new AudioPlayer();
             audioPlayer.MusicPlayer.PlayNext();
             Show();
-            controlManager.HideControl(0);
         }
 
         private void ControlManager_OnControlClick(GameControl source, MouseButtons btn)
@@ -53,11 +52,6 @@ namespace Pacman
         private void GameForm_KeyDown(object sender, KeyEventArgs e)
         {
             controlManager.ShowControl(0);
-        }
-
-        private void GameForm_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
         }
     }
 }
