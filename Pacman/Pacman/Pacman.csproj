@@ -65,6 +65,10 @@
     <Compile Include="Controls\ControlManager.cs" />
     <Compile Include="Controls\GameControl.cs" />
     <Compile Include="Controls\GameLabel.cs" />
+    <Compile Include="Entities\Blinky.cs" />
+    <Compile Include="Entities\Clyde.cs" />
+    <Compile Include="Entities\Inky.cs" />
+    <Compile Include="Entities\Pinky.cs" />
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Extension\GDIExtension.cs" />
     <Compile Include="GameForm.cs">
