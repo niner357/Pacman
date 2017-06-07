@@ -19,6 +19,14 @@ namespace Pacman.Map
 
         public Player Player { get; private set; }
 
+        public Pinky Pinky { get; private set; }
+
+        public Inky Inky { get; private set; }
+
+        public Blinky Blinky { get; private set; }
+
+        public Clyde Clyde { get; private set; }
+
         public Form Form { get; private set; }
 
         public KeyInputHandler KeyInputHandler { get; private set; }
@@ -33,7 +41,15 @@ namespace Pacman.Map
             RendererPanel.Height = 512;
             RendererPanel.Location = new Point(0, 0);
             Player = new Player(RendererPanel, this, RendererPanel.Width / 32, RendererPanel.Height / 32);
+            Pinky = new Pinky(RendererPanel, this, RendererPanel.Width / 32, RendererPanel.Height / 32);
+            Inky = new Inky(RendererPanel, this, RendererPanel.Width / 32, RendererPanel.Height / 32);
+            Blinky = new Blinky(RendererPanel, this, RendererPanel.Width / 32, RendererPanel.Height / 32);
+            Clyde = new Clyde(RendererPanel, this, RendererPanel.Width / 32, RendererPanel.Height / 32);
             RendererPanel.PlayerRenderAction = Player.Render;
+            RendererPanel.PinkyRenderAction = Pinky.Render;
+            RendererPanel.InkyRenderAction = Inky.Render;
+            RendererPanel.BlinkyRenderAction = Blinky.Render;
+            RendererPanel.ClydeRenderAction = Clyde.Render;
             RendererPanel.DoRender();
             form.Controls.Add(RendererPanel);
             KeyInputHandler = new KeyInputHandler(form, true, ThreadingMode.None);
@@ -44,6 +60,10 @@ namespace Pacman.Map
             form.FormClosing += Form_FormClosing;
             Grid = decoder.DecodeLevel();
             Player.Spawn(16, 16);
+            Pinky.Spawn(32,80);
+            Inky.Spawn(48,80);
+            Blinky.Spawn(64,80);
+            Clyde.Spawn(80,80);
         }
 
         private void Form_FormClosing(object sender, FormClosingEventArgs e)
