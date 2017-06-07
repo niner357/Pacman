@@ -68,13 +68,17 @@ namespace Pacman.Map
 
                     case TileType.Way:
                         g.FillRectangle(new SolidBrush(Color.Black), new Rectangle(Block.X, Block.Y, Block.Width, Block.Height));
-                        if(Block.Child.Type == TileType.Point)
+                        if (Block.Child != null)
                         {
-                            g.FillEllipse(new SolidBrush(Color.BurlyWood), new Rectangle(Block.X + Block.Width / 4, Block.Y + Block.Height / 4, Block.Width / 2, Block.Height / 2));
+                            if (Block.Child.Type == TileType.Point)
+                            {
+                                g.FillEllipse(new SolidBrush(Color.BurlyWood), new Rectangle(Block.X + Block.Width / 4, Block.Y + Block.Height / 4, Block.Width / 2, Block.Height / 2));
+                            }
                         }
-                        //if(Player.X == Block.X && Player.Y == Block.Y)
-                        //{                            
-                        //}
+                        if(Player.X == Block.X && Player.Y == Block.Y)
+                        {
+                            Block.Child = null;
+                        }
                         break;
                 }
             }
