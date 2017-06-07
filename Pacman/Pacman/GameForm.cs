@@ -26,7 +26,7 @@ namespace Pacman
             parentForm = parent;
             //parent.Hide();
             InitializeComponent();
-            level = new Level(this, new LevelDecoder(@"G:\RunLengthEncoding\Das ist ein LvL.jan", 512, 512));
+            level = new Level(this, new LevelDecoder(@"C:\Users\Markus_PC\Desktop\Das ist ein LvL.jan", 512, 512));
             controlManager = new ControlManager(level.RendererPanel);
             GameLabel label = new GameLabel(0, "Pac-Man", 50, Color.Gold);
             label.Location = new Point(10, 10);
