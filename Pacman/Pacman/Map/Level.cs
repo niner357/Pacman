@@ -64,22 +64,14 @@ namespace Pacman.Map
                 {
                     case TileType.Wall:
                         g.FillRectangle(new SolidBrush(Color.Blue), new Rectangle(block.X, block.Y, block.Width, block.Height));
-                        break;
+                        continue;
 
                     case TileType.Way:
                         g.FillRectangle(new SolidBrush(Color.Black), new Rectangle(block.X, block.Y, block.Width, block.Height));
-                        if (block.Child != null)
-                        {
-                            if (block.Child.Type == TileType.Point)
-                            {
+                        if(block.Child != null)
+                            if(block.Child.Type == TileType.Point)
                                 g.FillEllipse(new SolidBrush(Color.BurlyWood), new Rectangle(block.X + block.Width / 4, block.Y + block.Height / 4, block.Width / 2, block.Height / 2));
-                            }
-                        }
-                        if(Player.X == block.X && Player.Y == block.Y)
-                        {
-                            block.Child = null;
-                        }
-                        break;
+                        continue;
                 }
             }
         }
