@@ -18,6 +18,7 @@ namespace Pacman.Map
          * (:) = Wall
          * (_) = Way
          * (*) = Power
+         * (o) = Point
          */
 
         public string Path { get; private set; }
@@ -114,6 +115,12 @@ namespace Pacman.Map
                             Tile childTile6 = new Tile(x, y, tileWidth, tileHeight, TileType.Power);
                             tile8.Child = childTile6;
                             tiles.Add(tile8);
+                            continue;
+                        case 'o':
+                            Tile tile9 = new Tile(x, y, tileWidth, tileHeight, TileType.Way);
+                            Tile childTile7 = new Tile(x, y, tileWidth, tileHeight, TileType.Point);
+                            tile9.Child = childTile7;
+                            tiles.Add(tile9);
                             continue;
                     }
                 }

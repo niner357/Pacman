@@ -8,6 +8,6 @@ namespace LevelCreator
 {
     public enum FieldType
     {
-        SOLID, WAY, PLAYER_SPAWN, GHOST_SPAWN, POINT, POWER_UP
+        SOLID, WAY, PLAYER_SPAWN, CGHOST_SPAWN, POINT, POWER_UP, BGHOST_SPAWN, IGHOST_SPAWN, PGHOST_SPAWN, FRUIT
     }
 }

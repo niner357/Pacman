@@ -14,9 +14,9 @@ namespace LevelCreator
         {
             Fields = new Field[1024];
             int i = 0;
-            for(int y = 0; y < 32; y++)
+            for(int y = 0; y < 512; y+=16)
             {
-                for(int x = 0; x < 32; x++)
+                for(int x = 0; x < 512; x += 16)
                 {
                     Field field = new Field(x, y);
                     field.Type = FieldType.WAY;
