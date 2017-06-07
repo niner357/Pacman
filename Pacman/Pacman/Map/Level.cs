@@ -58,7 +58,18 @@ namespace Pacman.Map
 
         public void Render(Graphics g)
         {
-            
+            foreach (Tile tile in Grid)
+            {
+                switch (tile.Type)
+                {
+                    case TileType.Wall:
+                        g.FillRectangle(new SolidBrush(Color.Blue), tile.X, tile.Y, tile.Width, tile.Height);
+                        continue;
+                    case TileType.Way:
+                        g.FillRectangle(new SolidBrush(Color.Black), tile.X, tile.Y, tile.Width, tile.Height);
+                        continue;
+                }
+            }
         }
 
         public Tile GetTile(int x, int y)

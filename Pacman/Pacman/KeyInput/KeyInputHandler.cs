@@ -47,14 +47,19 @@ namespace Pacman.KeyInput
 
         private void Form_KeyUp(object sender, KeyEventArgs e)
         {
-            //pressedKey = Keys.None;
             if (pressedKeys.Contains(e.KeyCode))
                 pressedKeys.Remove(e.KeyCode);
         }
 
+        public void Reset()
+        {
+            pressedKeys.Clear();
+        }
+
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
-            //pressedKey = e.KeyCode;
+            if (pressedKeys.Count > 0)
+                pressedKeys.Clear();
             if (!pressedKeys.Contains(e.KeyCode))
                 pressedKeys.Add(e.KeyCode);
         }
@@ -95,13 +100,6 @@ namespace Pacman.KeyInput
             {
                 try
                 {
-                    //if(pressedKey != Keys.None)
-                    //{
-                    //    foreach (IKeyInput keyInput in handlingKeyInputs)
-                    //    {
-                    //        keyInput.OnKeyInput(pressedKey);
-                    //    }
-                    //}
                     List<Keys> keys = pressedKeys;
                     foreach (Keys key in keys)
                     {

@@ -47,6 +47,7 @@ namespace Pacman.Controls
                     if(control.Visible)
                         control.OnEnterRender(bufferGraphics);
                     if (OnControlEnter != null)
+                        if (control.Visible)
                         OnControlEnter(control);
                     if (bufferBitmap == null)
                         continue;
@@ -111,7 +112,8 @@ namespace Pacman.Controls
                 if (IsInControl(control, e.Location))
                 {
                     if (OnControlClick != null)
-                        OnControlClick(control, e.Button);
+                        if (control.Visible)
+                            OnControlClick(control, e.Button);
                     if (control.Visible)
                         control.OnActivateRender(bufferGraphics);
                     screenGraphics.DrawImage(bufferBitmap, 0, 0);
