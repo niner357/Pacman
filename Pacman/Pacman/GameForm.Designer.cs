@@ -39,7 +39,6 @@
             this.Text = "GameForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GameForm_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameForm_KeyDown);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.GameForm_KeyPress);
             this.ResumeLayout(false);
 
         }

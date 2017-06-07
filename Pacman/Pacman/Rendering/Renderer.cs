@@ -19,8 +19,6 @@ namespace Pacman.Rendering
         private Graphics bufferGraphics;
         private Graphics screenGraphics;
 
-        int width, height;
-
         public Renderer(Control control, IRenderable playerRenderable, IRenderable lvlRenderable)
         {
             Control = control;

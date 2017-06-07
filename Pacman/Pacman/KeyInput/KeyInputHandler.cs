@@ -19,8 +19,6 @@ namespace Pacman.KeyInput
         private Thread keyInputThread;
         private List<Keys> pressedKeys;
 
-        private Keys pressedKey;
-
         private bool allowHold;
         private ThreadingMode mode;
 

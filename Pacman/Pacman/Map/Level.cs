@@ -58,24 +58,20 @@ namespace Pacman.Map
 
         public void Render(Graphics g)
         {
-            foreach (Tile Block in Grid)
+            foreach (Tile block in Grid)
             {
-                switch(Block.Type)
+                switch(block.Type)
                 {
                     case TileType.Wall:
-                        g.FillRectangle(new SolidBrush(Color.Blue), new Rectangle(Block.X, Block.Y, Block.Width, Block.Height));
-                        break;
+                        g.FillRectangle(new SolidBrush(Color.Blue), new Rectangle(block.X, block.Y, block.Width, block.Height));
+                        continue;
 
                     case TileType.Way:
-                        g.FillRectangle(new SolidBrush(Color.Black), new Rectangle(Block.X, Block.Y, Block.Width, Block.Height));
-                        if(Block.Child.Type == TileType.Point)
-                        {
-                            g.FillEllipse(new SolidBrush(Color.BurlyWood), new Rectangle(Block.X + Block.Width / 4, Block.Y + Block.Height / 4, Block.Width / 2, Block.Height / 2));
-                        }
-                        //if(Player.X == Block.X && Player.Y == Block.Y)
-                        //{                            
-                        //}
-                        break;
+                        g.FillRectangle(new SolidBrush(Color.Black), new Rectangle(block.X, block.Y, block.Width, block.Height));
+                        if(block.Child != null)
+                            if(block.Child.Type == TileType.Point)
+                                g.FillEllipse(new SolidBrush(Color.BurlyWood), new Rectangle(block.X + block.Width / 4, block.Y + block.Height / 4, block.Width / 2, block.Height / 2));
+                        continue;
                 }
             }
         }
