@@ -33,7 +33,7 @@ namespace Pacman.Collision
         {
             Tile tile = Level.GetTile(toX, toY);
             if (tile == null)
-                return new CollideResult(false, CollisionType.Side); //TODO false = true
+                return new CollideResult(true, CollisionType.Side); //TODO false = true
             if (tile.Type == TileType.Wall)
                 return new CollideResult(true, CollisionType.Wall);
             //TODO ENEMY COLLISION DETECTION
