@@ -70,10 +70,11 @@ namespace Pacman.Entities
         {
             if(result.Type == CollisionType.Side)
             {
-                int teleport = 0;
-                if(lastKey == Keys.W)
+                int teleport = 1;
+                bool ifContinue = false;
+                if(lastKey == Keys.W && ifContinue == false)
                 {
-                    for (int i = 0; i <= 32; i++)
+                    for (int i = 1; i <= 31; i++)
                     {
                         if (level.GetTile(i*16, Height * 31).Type == TileType.Way)
                         {
@@ -85,41 +86,44 @@ namespace Pacman.Entities
                     }
                     X = teleport;
                     Y = Height * 31;
+                    ifContinue = true;
                     renderer.DoRender();
                 }
-                if(lastKey == Keys.S)
+                if(lastKey == Keys.S && ifContinue == false)
                 {
-                    for (int i = 0; i <= Width * 31; i += 16)
+                    for (int i = 1; i <= 31; i++)
                     {
-                        if (level.GetTile(i, 0).Type == TileType.Way)
+                        if (level.GetTile(i * 16, 0).Type == TileType.Way)
                         {
-                            if (Math.Abs(teleport - X) > Math.Abs(i - X))
+                            if (Math.Abs(teleport - X) > Math.Abs(i*16 - X))
                             {
-                                teleport = i;
+                                teleport = i*16;
                             }
                         }
                     }
                     X = teleport;
                     Y = 0;
+                    ifContinue = true;
                     renderer.DoRender();
                 }
-                if(lastKey == Keys.D)
+                if(lastKey == Keys.D && ifContinue == false)
                 {
-                    for (int i = 0; i <= Height * 31; i += 16)
+                    for (int i = 1; i <= 31; i++)
                     {
-                        if (level.GetTile(0, i).Type == TileType.Way)
+                        if (level.GetTile(0, i*16).Type == TileType.Way)
                         {
-                            if (Math.Abs(teleport - Y) > Math.Abs(i - Y))
+                            if (Math.Abs(teleport - Y) > Math.Abs(i * 16 - Y))
                             {
-                                teleport = i;
+                                teleport = i * 16;
                             }
                         }
                     }
                     Y = teleport;
                     X = 0;
+                    ifContinue = true;
                     renderer.DoRender();
                 }
-                if(lastKey == Keys.A)
+                if(lastKey == Keys.A && ifContinue == false)
                 {
                     for (int i = 0; i <= 31; i++)
                     {
@@ -133,6 +137,7 @@ namespace Pacman.Entities
                     }
                     Y = teleport;
                     X = Width * 31;
+                    ifContinue = true;
                     renderer.DoRender();
                 }
             }
