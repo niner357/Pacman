@@ -50,9 +50,9 @@ namespace Pacman
             string dataset = database.Select("Verified", "Username='" + username + "' AND Password='" + password + "'");
             if(dataset != "")
             {
-                if(dataset == "1")
+                if(dataset == "True")
                 {
-                    //START
+                    GameForm form = new GameForm(this);
                 }
                 else
                 {
@@ -91,38 +91,6 @@ namespace Pacman
                 strBuilder.Append(result[i].ToString("x2"));
             }
             return strBuilder.ToString();
-        }
-
-        private void usernameTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Tab)
-            {
-                passwordTextBox.Focus();
-            }
-        }
-
-        private void passwordTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Tab)
-            {
-                loginButton.Focus();
-            }
-        }
-
-        private void loginButton_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Tab)
-            {
-                registerButton.Focus();
-            }
-        }
-
-        private void registerButton_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Tab)
-            {
-                usernameTextBox.Focus();
-            }
         }
 
         private void picturePanel_Paint(object sender, PaintEventArgs e)

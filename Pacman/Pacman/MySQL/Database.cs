@@ -94,16 +94,22 @@ namespace Pacman.MySQL
             string dataset = "";
             if (Connect())
             {
-                string query = "SELECT " + row + "='" + "' FROM " + table + " WHERE " + where;
+                string query = "SELECT " + row + " FROM " + table + " WHERE " + where;
                 try
                 {
                     MySqlCommand cmd = new MySqlCommand(query, Connection);
-                    MySqlDataReader Reader = cmd.ExecuteReader();
-                    if (Reader.Read())
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
                     {
-                        dataset = Reader.ToString();
+                        for(int i = 0; i < reader.FieldCount; i++)
+                        {
+                            if (dataset != "")
+                                dataset += "[NEXT]" + reader.GetString(i);
+                            else
+                                dataset = reader.GetString(i);
+                        }
                     }
-                    Reader.Close();
+                    reader.Close();
                 }
                 catch { }
                 Disconnect();
