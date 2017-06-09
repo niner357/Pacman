@@ -70,7 +70,7 @@ namespace Pacman.Entities
         {
             if(result.Type == CollisionType.Side)
             {
-                int teleport = 1;
+                int teleport = 0;
                 bool ifContinue = false;
                 if(lastKey == Keys.W && ifContinue == false)
                 {
@@ -78,7 +78,11 @@ namespace Pacman.Entities
                     {
                         if (level.GetTile(i*16, Height * 31).Type == TileType.Way)
                         {
-                            if (Math.Abs(teleport - X) > Math.Abs(i - X))
+                            if(teleport == 0)
+                            {
+                                teleport = i * 16;
+                            }
+                            if (Math.Abs(teleport - X) > Math.Abs(i * 16 - X))
                             {
                                 teleport = i*16;
                             }
@@ -95,6 +99,10 @@ namespace Pacman.Entities
                     {
                         if (level.GetTile(i * 16, 0).Type == TileType.Way)
                         {
+                            if (teleport == 0)
+                            {
+                                teleport = i * 16;
+                            }
                             if (Math.Abs(teleport - X) > Math.Abs(i*16 - X))
                             {
                                 teleport = i*16;
@@ -112,6 +120,10 @@ namespace Pacman.Entities
                     {
                         if (level.GetTile(0, i*16).Type == TileType.Way)
                         {
+                            if (teleport == 0)
+                            {
+                                teleport = i * 16;
+                            }
                             if (Math.Abs(teleport - Y) > Math.Abs(i * 16 - Y))
                             {
                                 teleport = i * 16;
@@ -129,6 +141,10 @@ namespace Pacman.Entities
                     {
                         if (level.GetTile(Width * 31, i*16).Type == TileType.Way)
                         {
+                            if (teleport == 0)
+                            {
+                                teleport = i * 16;
+                            }
                             if (Math.Abs(teleport - Y) > Math.Abs(i*16 - Y))
                             {
                                 teleport = i*16;
@@ -155,26 +171,26 @@ namespace Pacman.Entities
             if(key == Keys.W)
             {
                 angle = -130;
-                PlayerCollider.OnMove(X, Y - 16);
                 lastKey = key;
+                PlayerCollider.OnMove(X, Y - 16);
             }
             else if(key == Keys.S)
             {
                 angle = 50;
-                PlayerCollider.OnMove(X, Y + 16);
                 lastKey = key;
+                PlayerCollider.OnMove(X, Y + 16);
             }
             else if(key == Keys.A)
             {
                 angle = 135;
-                PlayerCollider.OnMove(X - 16, Y);
                 lastKey = key;
+                PlayerCollider.OnMove(X - 16, Y);
             }
             else if(key == Keys.D)
             {
                 angle = -40;
-                PlayerCollider.OnMove(X + 16, Y);
                 lastKey = key;
+                PlayerCollider.OnMove(X + 16, Y);
             }
             Thread.Sleep(250);
         }
