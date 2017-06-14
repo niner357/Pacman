@@ -60,26 +60,21 @@ namespace Pacman.Map
                         {
                             if (tile.Child.Type == TileType.Point)
                             {
-                                //TO DO
-                                //g.FillRectangle(new SolidBrush(Color.BurlyWood),new Rectangle(tile.X/4,tile.Y/4,tile.Width/2,tile.Height/2));
+                                g.FillRectangle(new SolidBrush(Color.BurlyWood),new Rectangle(tile.X + tile.Width*3/8,tile.Y+tile.Height*3/8,tile.Width/4,tile.Height/4));
                             }
                             else if (tile.Child.Type == TileType.Fruit)
                             {
                                 //TO DO
                             }
-                            else if (tile.Type == TileType.Power)
+                            else if (tile.Child.Type == TileType.Power)
                             {
-                                //TO DO
+                                g.FillRectangle(new SolidBrush(Color.BurlyWood), new Rectangle(tile.X + tile.Width/4, tile.Y+tile.Height/ 4, tile.Width / 2, tile.Height / 2));
                             }
                         }
                         break;
 
                     case TileType.Wall:
                         g.FillRectangle(new SolidBrush(Color.DarkBlue), new Rectangle(tile.X, tile.Y, tile.Width, tile.Height));
-                        break;
-
-                    case TileType.Power:
-                        g.FillEllipse(new SolidBrush(Color.BurlyWood), tile.X, tile.Y, tile.Width, tile.Height);
                         break;
                 }
             }

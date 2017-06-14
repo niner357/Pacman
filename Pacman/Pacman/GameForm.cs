@@ -31,7 +31,7 @@ namespace Pacman
             bufferBitmap = new Bitmap(fieldPanel.Width, fieldPanel.Height);
             bufferGraphics = Graphics.FromImage(bufferBitmap);
             screenGraphics = fieldPanel.CreateGraphics();
-            level = new Level(this, fieldPanel, new LevelDecoder("E:\\RunLengthEncoding\\Das ist ein LvL.jan", fieldPanel.Width, fieldPanel.Height));
+            level = new Level(this, fieldPanel, new LevelDecoder(@"Z:\profile.V2\Documents\Das ist ein LvL.jan", fieldPanel.Width, fieldPanel.Height));
             controlManager = new ControlManager(fieldPanel);
             GameLabel label = new GameLabel("Pac-Man", 50, Color.Gold);
             label.Location = new Point(10, 10);
